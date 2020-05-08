@@ -1,0 +1,25 @@
+<html>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <body>
+    <div class="container">
+        <button onclick=" location.href={% url 'back' %} "><</button>
+        <button onclick=" location.href={% url 'next' %} ">></button>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="input" placeholder="{{holder}}">
+            <button type="submit">Go</button>
+        </form>
+        <button onclick=" location.href={% url 'get' %} ">Browse History</button>
+        
+        <div>
+            <table border=3>
+                {% for i in item %}
+                    <tr><td>{{i}}
+                        </td>    
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    </body>
+</html>

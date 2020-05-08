@@ -1,0 +1,48 @@
+<html><head runat="server">
+    <title>Web Page Title</title>
+</head>
+<body>
+    <div style="
+    margin: 5%;
+">
+<div style="border: #d7d1d1e6 1.1px solid;width: 1.5%;padding-left: 0.5%;float: left;cursor: pointer;">
+    <div><button onclick=" location.href={% url 'back' %} "><</button></div>
+</div>
+<form method="POST">
+    {% csrf_token %}
+<div style="border: #d7d1d1e6 1.1px solid;width: 1.5%;padding-left: 0.8%;float: left;margin-left: 1%;">
+    <div><button onclick=" location.href={% url 'next' %} ">></button></div>
+</div>
+<div style="float: left;margin-left: 1%;width: 25%;">
+<input type="text" name="input" placeholder="{{holder}}">
+</div>
+<div style="float: left;margin-left: 1%;width:10%">
+    <button type="submit">Go</button>
+</form>
+</div>
+<div style="width: 15%;padding-top: 2%;padding-left: 11%;">
+    <input type="button" value="Show History" style="
+    width: 100%;
+    margin-top: 10%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+">
+      
+</div>
+<div style="width: 20%;padding-top: 3%;padding-left: 9%;">
+        <table style="
+    border: 2px solid black;
+    width: 100%;
+    border-collapse: collapse;
+">
+            <table border=3>
+                {% for i in item %}
+                    <tr><td>{{i}}
+                        </td>    
+                    </tr>
+                {% endfor %}
+</table>
+    </div>
+    </div>
+
+</body></html>
